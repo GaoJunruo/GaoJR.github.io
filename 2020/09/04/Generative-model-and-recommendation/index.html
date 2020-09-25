@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+  <title>Generative model and recommendation [ Hexo ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/iLiKE.css">
+    
+  
+  
+  
+  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+    <script id="leancloud">
+      AV.init({
+          appId: "6E5zTbTljdUbVW2WkXPsXGJk-gzGzoHsz",
+          appKey: "0vsyDKfNpeSECAI70J794ugv"
+      });
+    </script>
+
+<meta name="generator" content="Hexo 5.0.2"></head>
+<body>
+    <div class="header">
+        <div class="container">
+    <div class="menu">
+      <div class="menu-left">
+        <a href="/">
+          <img src="/favicon.ico"></img>
+        </a>
+      </div>
+      <div class="menu-right">
+        
+          
+          
+          
+          
+          
+          
+          <a href="/">Home</a>
+        
+          
+          
+          
+          
+          
+          
+          <a href="/archives">Archives</a>
+        
+          
+          
+          
+          
+          
+          
+          <a href="/about">About</a>
+        
+      </div>
+    </div>
+</div>
+    </div>
+    <div class="container">
+        <h1 class="post-title">Generative model and recommendation</h1>
+<article class="post markdown-style">
+  <h1 id="生成模型在推荐系统中的应用"><a href="#生成模型在推荐系统中的应用" class="headerlink" title="生成模型在推荐系统中的应用"></a>生成模型在推荐系统中的应用</h1><h2 id="1-Generative-Adversarial-User-Model-for-Reinforcement-Learning-Based-Recommendation-System（ICML-2019-）"><a href="#1-Generative-Adversarial-User-Model-for-Reinforcement-Learning-Based-Recommendation-System（ICML-2019-）" class="headerlink" title="1. Generative Adversarial User Model for Reinforcement Learning Based Recommendation System（ICML 2019 ）"></a>1. Generative Adversarial User Model for Reinforcement Learning Based Recommendation System（ICML 2019 ）</h2><h3 id="a-提出的问题："><a href="#a-提出的问题：" class="headerlink" title="a. 提出的问题："></a>a. 提出的问题：</h3><p>用户的interest会随着她观察到的事物而改变，推荐系统可以通过改变展示给用户item隐藏另一部分item来指导用户的interest。本文要获得用户的长期interest。</p>
+<h3 id="b-采用的方法："><a href="#b-采用的方法：" class="headerlink" title="b. 采用的方法："></a>b. 采用的方法：</h3><p>主体是RL；要通过生成对抗网络模拟用户动态行为并学习奖赏函数；提出Cascading DQN算法用来获得一系列候选item</p>
+<h3 id="c-存在的问题-困难-："><a href="#c-存在的问题-困难-：" class="headerlink" title="c. 存在的问题(困难)："></a>c. 存在的问题(困难)：</h3><ol>
+<li>用户的interest如何指导用户的行为是未知的，但是却影响着RL算法，遗忘的方法都+1-1代表click/no-click，但是不能表达用户对不同item的偏好。</li>
+<li>无模型 RL 一般都需要和环境（在线用户）进行大量的交互才能学到良好的策略。但这在推荐系统设置中是不切实际的。为了解决无模型方法样本复杂度大的问题，基于模型的 RL 方法更为可取。<h3 id="d-解决方案："><a href="#d-解决方案：" class="headerlink" title="d. 解决方案："></a>d. 解决方案：</h3>生成模型模拟用户的行为，利用rl来反馈奖励。<h2 id="2-Exploring-Social-Inﬂuence-for-Recommendation-A-Probabilistic-Generative-Model-Approach（2012-SIGIR）"><a href="#2-Exploring-Social-Inﬂuence-for-Recommendation-A-Probabilistic-Generative-Model-Approach（2012-SIGIR）" class="headerlink" title="2. Exploring Social Inﬂuence for Recommendation - A Probabilistic Generative Model Approach（2012 SIGIR）"></a>2. Exploring Social Inﬂuence for Recommendation - A Probabilistic Generative Model Approach（2012 SIGIR）</h2><h3 id="a-提出的问题：-1"><a href="#a-提出的问题：-1" class="headerlink" title="a. 提出的问题："></a>a. 提出的问题：</h3>本文设计一个统一的模型，统一了社交影响力，协同过滤和基于内容的方法<h3 id="b-我的问题："><a href="#b-我的问题：" class="headerlink" title="b. 我的问题："></a>b. 我的问题：</h3>user，item，social influence是用embedding来表示的么？<h2 id="3-LARA-Attribute-to-feature-Adversarial-Learning-for-New-item-Recommendation（wsdm2020）"><a href="#3-LARA-Attribute-to-feature-Adversarial-Learning-for-New-item-Recommendation（wsdm2020）" class="headerlink" title="3. LARA: Attribute-to-feature Adversarial Learning for New-item Recommendation（wsdm2020）"></a>3. LARA: Attribute-to-feature Adversarial Learning for New-item Recommendation（wsdm2020）</h2><h3 id="a-提出问题：-生成模型解决冷启动问题"><a href="#a-提出问题：-生成模型解决冷启动问题" class="headerlink" title="a. 提出问题：(生成模型解决冷启动问题)"></a>a. 提出问题：(生成模型解决冷启动问题)</h3>推荐系统中存在冷启动的问题，从item的属性不同侧面生成用户表示。因此基于属性层的相似度，可以将新的item推荐给用户.<h3 id="b-related-work："><a href="#b-related-work：" class="headerlink" title="b. related work："></a>b. related work：</h3>以往生成user-item交互的方法：IRGAN，GraphGAN，CFGAN。向量的每个维度都反映了用户购买相应商品的可能性。因此，所生成的交互向量可以被视为相应用户的表示。（Each dimension of the vector reflects the probability that the user will buy the corresponding item. Thus, the generated interaction vectors could be regard as the representation of the corresponding users. ）<h3 id="c-解决方案："><a href="#c-解决方案：" class="headerlink" title="c. 解决方案："></a>c. 解决方案：</h3>生成模型是用多个生成器生成和item属性相关的user profiles。判别器是用来判别生成的profiles和真正的profiles。核心就是GAN生成用户表示</li>
+</ol>
+<h2 id="4-CFGAN-A-Generic-Collaborative-Filtering-Framework-based-on-Generative-Adversarial-Networks"><a href="#4-CFGAN-A-Generic-Collaborative-Filtering-Framework-based-on-Generative-Adversarial-Networks" class="headerlink" title="4.CFGAN: A Generic Collaborative Filtering Framework based on Generative Adversarial Networks"></a>4.CFGAN: A Generic Collaborative Filtering Framework based on Generative Adversarial Networks</h2><h3 id="a-传统GAN应用在推荐系统中存在的问题（IRGAN和GraphGAN）："><a href="#a-传统GAN应用在推荐系统中存在的问题（IRGAN和GraphGAN）：" class="headerlink" title="a. 传统GAN应用在推荐系统中存在的问题（IRGAN和GraphGAN）："></a>a. 传统GAN应用在推荐系统中存在的问题（IRGAN和GraphGAN）：</h3><p>在判别器的“指导”下，随着训练的进行，生成器G将生成与真实情况完全相同的项目ID。但是，这对判别器来说并不友好，同一个物品，它有可能既被标记为真实数据（real），又被标记为生成数据（fake）</p>
+<h3 id="b-解决方法："><a href="#b-解决方法：" class="headerlink" title="b. 解决方法："></a>b. 解决方法：</h3><p>提出一种vector-wise的训练方法。生成器生成的向量是购买向量（类似于隐式反馈的user-item矩阵）。向量中每一个值都代表用户与商品的交互概率。</p>
+<h2 id="5-Learning-Deep-Generative-Models-of-Graphs"><a href="#5-Learning-Deep-Generative-Models-of-Graphs" class="headerlink" title="5.Learning Deep Generative Models of Graphs"></a>5.Learning Deep Generative Models of Graphs</h2><h3 id="a"><a href="#a" class="headerlink" title="a."></a>a.</h3><h2 id="6-Graphite-Iterative-Generative-Modeling-of-Graphs"><a href="#6-Graphite-Iterative-Generative-Modeling-of-Graphs" class="headerlink" title="6.Graphite: Iterative Generative Modeling of Graphs"></a>6.Graphite: Iterative Generative Modeling of Graphs</h2><h2 id="7-Junction-Tree-Variational-Autoencoder-for-Molecular-Graph-Generation"><a href="#7-Junction-Tree-Variational-Autoencoder-for-Molecular-Graph-Generation" class="headerlink" title="7.Junction Tree Variational Autoencoder for Molecular Graph Generation"></a>7.Junction Tree Variational Autoencoder for Molecular Graph Generation</h2><h3 id="a-本文目的是扩展分子，树结构的vae"><a href="#a-本文目的是扩展分子，树结构的vae" class="headerlink" title="a. 本文目的是扩展分子，树结构的vae"></a>a. 本文目的是扩展分子，树结构的vae</h3><h3 id="b-以前的工作把药物生成看成是一个字符串生辰问题。"><a href="#b-以前的工作把药物生成看成是一个字符串生辰问题。" class="headerlink" title="b. 以前的工作把药物生成看成是一个字符串生辰问题。"></a>b. 以前的工作把药物生成看成是一个字符串生辰问题。</h3><h2 id="8-Conditional-Structure-Generation-through-Graph-Variational-Generative-Adversarial-Nets"><a href="#8-Conditional-Structure-Generation-through-Graph-Variational-Generative-Adversarial-Nets" class="headerlink" title="8. Conditional Structure Generation through Graph Variational Generative Adversarial Nets"></a>8. Conditional Structure Generation through Graph Variational Generative Adversarial Nets</h2><h3 id="a-我们希望（1）给定可见条件C∈T，生成更多图G模仿训练集合T中的那些结构"><a href="#a-我们希望（1）给定可见条件C∈T，生成更多图G模仿训练集合T中的那些结构" class="headerlink" title="a. 我们希望（1）给定可见条件C∈T，生成更多图G模仿训练集合T中的那些结构"></a>a. 我们希望（1）给定可见条件C∈T，生成更多图G模仿训练集合T中的那些结构</h3><h3 id="（2）给定未知条件C∈-T，生成合理的新颖图G，可以支持T中的相似任务，同时提供对不可观察世界的洞察力。"><a href="#（2）给定未知条件C∈-T，生成合理的新颖图G，可以支持T中的相似任务，同时提供对不可观察世界的洞察力。" class="headerlink" title="（2）给定未知条件C∈/ T，生成合理的新颖图G，可以支持T中的相似任务，同时提供对不可观察世界的洞察力。"></a>（2）给定未知条件C∈/ T，生成合理的新颖图G，可以支持T中的相似任务，同时提供对不可观察世界的洞察力。</h3>
+</article>
+
+    <div class="pagenator post-pagenator">
+    
+    
+        <a class="extend prev post-prev" href="/2020/09/07/Good/">prev</a>
+    
+
+    
+    <p>last update time 2020-09-13</p>
+    
+    
+        <a class="extend next post-next" href="/2020/09/02/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">next</a>
+    
+    </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+    <div class="social">
+	<ul class="social-list">
+		
+			
+				
+				
+				<li>
+					<a href="mailto:1178752402@qq.com" title="email" target="_blank">
+					<i class="fa fa-email"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+				<li>
+					<a href="https://github.com/CaiChenghan" title="github" target="_self">
+					<i class="fa fa-github"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+				<li>
+					<a href="https://www.jianshu.com/u/565c8e790605" title="jianshu" target="_self">
+					<i class="fa fa-jianshu"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+    <div class="copyright">
+        <span>
+            
+            
+            
+                © John Doe 2017 - 2020
+            
+        </span>
+    </div>
+    <div class="power">
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> & <a target="_blank" rel="noopener" href="https://github.com/CaiChenghan/iLiKE">iLiKE Theme</a>
+        </span>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <!--page counter part-->
+<script>
+function addCount (Counter) {
+    url=$('.article-date').attr('href').trim();
+    title = $('.article-title').text().trim();
+    var query = new AV.Query(Counter);
+    //use url as unique idnetfication
+    query.equalTo("url",url);
+    query.find({
+        success: function(results) {
+            if (results.length>0) {
+                var counter=results[0];
+                counter.fetchWhenSave(true); //get recent result
+                counter.increment("time");
+                counter.save();
+            } else {
+                var newcounter=new Counter();
+                newcounter.set("title",title);
+                newcounter.set("url",url);
+                newcounter.set("time",1);
+                newcounter.save(null,{
+                    success: function(newcounter) {
+                        //alert('New object created');
+                    }, error: function(newcounter,error) {
+                        alert('Failed to create');
+                    }
+                })
+            }
+        },
+        error: function(error) {
+            //find null is not a error
+            alert('Error:'+error.code+" "+error.message);
+        }
+    });
+}
+$(function() {
+    var Counter=AV.Object.extend("Counter");
+    //only increse visit counting when intering a page
+    if ($('.article-title').length == 1) {
+       addCount(Counter);
+    }
+    var query=new AV.Query(Counter);
+    query.descending("time");
+    // the sum of popular posts
+    query.limit(10); 
+    query.find({
+        success: function(results) {
+                for(var i=0;i<results.length;i++) {
+                    var counter=results[i];
+                    title=counter.get("title");
+                    url=counter.get("url");
+                    time=counter.get("time");
+                    // add to the popularlist widget
+                    showcontent=title+" ("+time+")";
+                    //notice the "" in href
+                    $('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+                }
+            },
+        error: function(error) {
+            alert("Error:"+error.code+" "+error.message);
+        }
+    });
+});
+</script>
+</div>
+    </div>
+</body>
+</html>

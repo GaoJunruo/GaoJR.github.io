@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   
-  <title>Archives [ Hexo ]</title>
+  <title>Explainable recommendation system [ Hexo ]</title>
   
     <!-- stylesheets list from config.yml -->
     
@@ -63,87 +63,30 @@
 </div>
     </div>
     <div class="container">
-        <div class="article">
-      
+        <h1 class="post-title">Explainable recommendation system</h1>
+<article class="post markdown-style">
+  <p>可解释推荐要从模型和特征两个方面同时具有可解释性</p>
+<h2 id="1-Explainable-Recommender-Systems-via-Resolving-Learning-Representations"><a href="#1-Explainable-Recommender-Systems-via-Resolving-Learning-Representations" class="headerlink" title="1. Explainable Recommender Systems via Resolving Learning Representations"></a>1. Explainable Recommender Systems via Resolving Learning Representations</h2><p>1).post-hoc methods: some examples include understanding the meaning of latent factors [10, 2). or reconstructing the rationale behind each prediction<br>缺点：suffers from the issue of explanation accuracy<br>2).build explainable models or add explainable components, where attention mechanism is commonly applied to highlight important features for prediction</p>
+<p>** one of the important building blocks of model explainability is the transparency of representation learning. </p>
+<h2 id="2-Explainable-Recommendation-via-Interpretable-Feature-Mapping-and-Evaluation-of-Explainability-∗"><a href="#2-Explainable-Recommendation-via-Interpretable-Feature-Mapping-and-Evaluation-of-Explainability-∗" class="headerlink" title="2. Explainable Recommendation via Interpretable Feature Mapping and Evaluation of Explainability ∗"></a>2. Explainable Recommendation via Interpretable Feature Mapping and Evaluation of Explainability ∗</h2><p>提出了个新的评价指标，可以评判可解释性和准确性<br>以往的方法也提出过可解释的指标：explainability precision (EP) and explainability recall (ER)<br>本文的指标：从特征角度评估，召回了多少个符合用户偏好的特征。<br>Top M recall at K (TM@K):评估最喜欢的<br>Bottom M recall at K (BM@K):评估最不喜欢的</p>
+<h2 id="3-A-Capsule-Network-for-Recommendation-and-Explaining-What-You-Like-and-Dislike"><a href="#3-A-Capsule-Network-for-Recommendation-and-Explaining-What-You-Like-and-Dislike" class="headerlink" title="3. A Capsule Network for Recommendation and Explaining What You Like and Dislike"></a>3. A Capsule Network for Recommendation and Explaining What You Like and Dislike</h2><p>这个也用到了胶囊网络</p>
+<h2 id="4-Explainable-recommendation-with-fusion-of-aspect-information"><a href="#4-Explainable-recommendation-with-fusion-of-aspect-information" class="headerlink" title="4. Explainable recommendation with fusion of aspect information"></a>4. Explainable recommendation with fusion of aspect information</h2><p>本文是矩阵分（Aspect-based Matrix Factorization model (AMF)），提出了一种新的评估标准（User Aspect Preference (UAP) and Item Aspect Quality (IAQ)）。<br>“aspect information”：本文认为用户关注item的两个方面the operation aspect 和 the price aspect.<br>相同的评分，但是可能评论的角度不同，本文回捕获这个方面的差异</p>
+<h1 id="基于图："><a href="#基于图：" class="headerlink" title="基于图："></a>基于图：</h1><h2 id="4-Explainable-Knowledge-Graph-based-Recommendation-via-Deep-Reinforcement-Learning"><a href="#4-Explainable-Knowledge-Graph-based-Recommendation-via-Deep-Reinforcement-Learning" class="headerlink" title="4. Explainable Knowledge Graph-based Recommendation via Deep Reinforcement Learning"></a>4. Explainable Knowledge Graph-based Recommendation via Deep Reinforcement Learning</h2><p>知识图谱推荐分为两类，一类是embedding，一类是path的，但是作者认为都不行，所以他提出来一个基于强化学习的寻找最好路径的方法<br>评估的方式还是HR和NDCG，对于可解释性也只是举了个具体例子说明</p>
+
+</article>
+
+    <div class="pagenator post-pagenator">
     
-      <div class="year-list">
-        <h3>2020</h3>
-        <ul>
-          
-            <li >
-              <time>2020-09-22</time>
-              <a href="/2020/09/22/Explainable-recommendation-system/">
-                Explainable recommendation system
-              </a>
-            </li>
-          
-            <li >
-              <time>2020-09-11</time>
-              <a href="/2020/09/11/flow-based-generative-model/">
-                flow-based generative model
-              </a>
-            </li>
-          
-            <li >
-              <time>2020-09-07</time>
-              <a href="/2020/09/07/Good/">
-                Good
-              </a>
-            </li>
-          
-            <li >
-              <time>2020-09-04</time>
-              <a href="/2020/09/04/Generative-model-and-recommendation/">
-                Generative model and recommendation
-              </a>
-            </li>
-          
-            <li >
-              <time>2020-09-02</time>
-              <a href="/2020/09/02/基础知识/">
-                基础知识
-              </a>
-            </li>
-          
-            <li >
-              <time>2020-09-01</time>
-              <a href="/2020/09/01/A-Systematic-Survey-on-Deep-Generative-Models-for-Graph-Generation-conditional/">
-                A Systematic Survey on Deep Generative Models for Graph Generation
-              </a>
-            </li>
-          
-            <li >
-              <time>2020-08-27</time>
-              <a href="/2020/08/27/写博客的第一天/">
-                写博客的第一天
-              </a>
-            </li>
-          
-            <li >
-              <time>2020-08-20</time>
-              <a href="/2020/08/20/hello/">
-                hello
-              </a>
-            </li>
-          
-            <li >
-              <time>2020-08-20</time>
-              <a href="/2020/08/20/My-new-post/">
-                My new post
-              </a>
-            </li>
-          
-            <li >
-              <time>2020-08-20</time>
-              <a href="/2020/08/20/hello-world/">
-                Hello World
-              </a>
-            </li>
-          
-        </ul>
-      </div>
-     
-</div>
+    
+
+    
+    <p>last update time 2020-09-25</p>
+    
+    
+        <a class="extend next post-next" href="/2020/09/11/flow-based-generative-model/">next</a>
+    
+    </div>
+
     </div>
     <div class="footer">
         <div class="container">
